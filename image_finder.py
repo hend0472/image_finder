@@ -1,7 +1,7 @@
 import os
 import shutil
 
-crap_words = ['background', 'welcome', 'test', 'recycle.bin']
+useless_words = ['background', 'welcome', 'test', 'recycle.bin']
 copy_location = os.getcwd() + '\\Pictures_Capture'
 current_directory = os.getcwd()[:1]
 drive_locations = []
@@ -27,7 +27,7 @@ def check_directory(directory_to_check):
 					file = os.path.join(dirname, filename)
 					file_size = os.path.getsize(file)
 					if int(file_size) > 75000:
-						if not any(word.lower() in file for word in crap_words):
+						if not any(word.lower() in file for word in useless_words):
 							print(file)
 							try:
 								shutil.copyfile(file, (copy_location + '\\' + filename))
